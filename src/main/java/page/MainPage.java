@@ -1,14 +1,11 @@
 package page;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
-
-import static org.junit.Assert.assertTrue;
 
 public class MainPage {
 
@@ -18,8 +15,6 @@ public class MainPage {
     private WebElement enterAccountButton;
     @FindBy(xpath = ".//button[text()='Оформить заказ']")
     private WebElement createOrderButton;
-    @FindBy(xpath = ".//div[span[contains(@class, 'text')]]")
-    private List<WebElement> ingredientTabs;
     @FindBy(xpath = ".//div[contains(@class, 'tab_tab_type_current__2BEPc')]")
     private WebElement selectedTab;
 
@@ -40,26 +35,19 @@ public class MainPage {
         return createOrderButton.isDisplayed();
     }
 
-    @Step("Get list of ingredient tabs")
-    public List<WebElement> getIngredientTabs() {
-        return ingredientTabs;
-    }
-
     @Step("Check needed tab is selected")
     public boolean isTabSelected(String tabName) {
         return selectedTab.getText().contains(tabName);
     }
 
-    @Step("Check ingredient tabs are switching")
-    public void checkIngredientTabSwitch() {
-        List<WebElement> tabsList = getIngredientTabs();
-        for (int i = tabsList.size() - 1; i >= 0; i--) {
-            WebElement ingredientTab = tabsList.get(i);
-            ingredientTab.click();
+    @Step("Ingredient tab click")
+    public MainPage clickTab(String tabName) {
+        WebElement tabElement = driver.findElement(By.xpath(String.format(".//span[@class='text text_type_main-default' and text()='%s']", tabName)));
+        WebElement tabElementParent = driver.findElement(By.xpath(String.format(".//span[@class='text text_type_main-default' and text()='%s']/parent::div", tabName)));
 
-            String ingredientTabName = ingredientTab.getText();
-
-            assertTrue(isTabSelected(ingredientTabName));
+        if (!tabElementParent.getAttribute("class").contains("tab_tab_type_current__2BEPc")) {
+            tabElement.click();
         }
+        return this;
     }
 }

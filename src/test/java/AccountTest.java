@@ -36,9 +36,9 @@ public class AccountTest extends BaseTest {
                 .fillEmailInput(email)
                 .fillPasswordInput(password)
                 .clickLoginButton();
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
 
-        assertTrue(new Header(driver)
+        assertTrue("Logout button isn't displayed", new Header(driver)
                 .clickAccountButtonForAuthorizedUser()
                 .isLogoutButtonDisplayed());
     }
@@ -54,14 +54,14 @@ public class AccountTest extends BaseTest {
                 .fillEmailInput(email)
                 .fillPasswordInput(password)
                 .clickLoginButton();
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
 
         Header header = new Header(driver);
-        assertTrue(header
+        assertTrue("Order list topic isn't displayed", header
                 .clickOrderListButton()
                 .isOrderListTopicDisplayed());
 
-        assertTrue(header
+        assertTrue("Logout button isn't displayed", header
                 .clickAccountButtonForAuthorizedUser()
                 .isLogoutButtonDisplayed());
     }
@@ -76,14 +76,14 @@ public class AccountTest extends BaseTest {
                 .fillEmailInput(email)
                 .fillPasswordInput(password)
                 .clickLoginButton();
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
 
         Header header = new Header(driver);
-        assertTrue(header
+        assertTrue("Logout button isn't displayed", header
                 .clickAccountButtonForAuthorizedUser()
                 .isLogoutButtonDisplayed());
 
-        assertTrue(header
+        assertTrue("Create order button isn't displayed", header
                 .clickConstructorButton()
                 .isCreateOrderButtonDisplayed());
     }
@@ -98,14 +98,14 @@ public class AccountTest extends BaseTest {
                 .fillEmailInput(email)
                 .fillPasswordInput(password)
                 .clickLoginButton();
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
 
         Header header = new Header(driver);
-        assertTrue(header
+        assertTrue("Logout button isn't displayed", header
                 .clickAccountButtonForAuthorizedUser()
                 .isLogoutButtonDisplayed());
 
-        assertTrue(header
+        assertTrue("Create order button isn't displayed", header
                 .clickLogoButton()
                 .isCreateOrderButtonDisplayed());
     }
@@ -121,11 +121,11 @@ public class AccountTest extends BaseTest {
                 .fillEmailInput(email)
                 .fillPasswordInput(password)
                 .clickLoginButton();
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
 
         Header header = new Header(driver);
 
-        assertTrue(header
+        assertTrue("Login button isn't displayed", header
                 .clickAccountButtonForAuthorizedUser()
                 .clickLogoutButton()
                 .isLoginButtonDisplayed());

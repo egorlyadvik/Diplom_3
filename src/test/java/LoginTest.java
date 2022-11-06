@@ -37,11 +37,11 @@ public class LoginTest extends BaseTest {
                 .fillPasswordInput(password)
                 .clickLoginButton();
 
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
     }
 
     @Test
-    @DisplayName("Login is successful from heade")
+    @DisplayName("Login is successful from header")
     @Description("Login is successful from header by account button click")
     public void loginIsSuccessfulFromHeaderAccountButton() {
         String email = userData.get("email");
@@ -52,7 +52,7 @@ public class LoginTest extends BaseTest {
                 .fillPasswordInput(password)
                 .clickLoginButton();
 
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class LoginTest extends BaseTest {
                 .fillPasswordInput(password)
                 .clickLoginButton();
 
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
     }
 
     @Test
@@ -86,6 +86,6 @@ public class LoginTest extends BaseTest {
                 .fillPasswordInput(password)
                 .clickLoginButton();
 
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
     }
 }

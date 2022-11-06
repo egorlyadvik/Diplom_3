@@ -26,7 +26,7 @@ public class RegistrationTest extends BaseTest {
                 .fillPasswordInput(password)
                 .clickLoginButton();
 
-        assertTrue(mainPage.isCreateOrderButtonDisplayed());
+        assertTrue("Create order button isn't displayed", mainPage.isCreateOrderButtonDisplayed());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class RegistrationTest extends BaseTest {
         String name = RandomStringUtils.randomAlphabetic(6);
         String email = RandomStringUtils.randomAlphanumeric(6).toLowerCase() + "@test.ru";
         String password = RandomStringUtils.randomAlphanumeric(5);
-        assertTrue(new MainPage(driver)
+        assertTrue("Password error message isn't displayed", new MainPage(driver)
                 .clickEnterAccountButton()
                 .clickRegisterLink()
                 .fillNameInput(name)
